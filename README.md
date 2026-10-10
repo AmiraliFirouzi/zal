@@ -1,7 +1,7 @@
 # زال (Zal) — کامیونیتی مدل‌های زبانی و دیتاست‌های فارسی
 
 <div align="center">
-  <img src="public/logo.svg" alt="زال Logo" width="120" />
+  <img src="" alt="زال Logo" width="120" />
 </div>
 
 <div align="center">
