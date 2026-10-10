@@ -1,84 +1,85 @@
-[{
-  "name": "Persian-SFT-102K",
-  "kind": "dataset",
-  "links": [
-    {
-      "type": "huggingface",
-      "url": "https://huggingface.co/datasets/amiralifirouzi/Persian-SFT-102K"
-    }
-  ],
-  "author": "امیرعلی فیروزی",
-  "date": "2026-10-09",
-  "downloads": 0,
-  "tags": [
-    "sft",
-    "farsi",
-    "persian",
-    "data"
-  ],
-  "desc": "دیتاست **Persian SFT Master — 102K** یک مجموعه حدوداً ۱۰۲هزارنمونهای برای fine-tuning مدلهای زبانی با تمرکز بر فارسی است که در دو نسخه ارائه میشود: `fa` (۸۴٬۶۱۲ نمونه فارسی) و `fa_replay` (همان دادهها + ۱۷٬۳۰۲ نمونه انگلیسی برای حفظ قابلیتهای عمومی). دادهها حوزههایی مثل مکالمه، استدلال، ریاضی، برنامهنویسی و tool calling را پوشش میدهند و مجوز آن ترکیبی و وابسته به منبع اصلی هر نمونه است."
-},
-{
-  "name": "tiny-persian-sft-15k",
-  "kind": "dataset",
-  "links": [
-    {
-      "type": "huggingface",
-      "url": "https://huggingface.co/datasets/amiralifirouzi/tiny-persian-sft-15k"
-    }
-  ],
-  "author": "امیرعلی فیروزی",
-  "date": "2026-10-09",
-  "downloads": 0,
-  "tags": [
-    "persian",
-    "farsi",
-    "sft",
-    "instruction-tuning",
-    "chat",
-    "qwen3"
-  ],
-  "desc": "Tiny Persian SFT — 15K یک دیتاست فشرده و پالایششده برای Supervised Fine-Tuning مدلهای زبانی با تمرکز بر فارسی است — ساختهشده برای فاینتیون Qwen3-4B و مدلهای چت مشابه. این دیتاست نسخهی کوچکِ باکیفیتِ دیتاست Persian-SFT-102K، است: همان منابع، همان اسکیما، با یک پایپلاین نمونهگیری و ممیزی مستقل و عمیقتر."
-},
-{
-  "name": "Cassandane-qwen3-4b-persian-lora",
-  "kind": "model",
-  "links": [
-    {
-      "type": "huggingface",
-      "url": "https://huggingface.co/amiralifirouzi/Cassandane-qwen3-4b-persian-lora"
-    }
-  ],
-  "author": "امیرعلی فیروزی",
-  "date": "2026-10-10",
-  "downloads": 0,
-  "tags": [
-    "farsi",
-    "qwen3",
-    "lora",
-    "sft"
-  ],
-  "desc": "این مدل یک LoRA فارسی روی Qwen3-4B است که برای مکالمه، پیروی از دستور و تولید متن فارسی فاینتیون شده است. کاساندان حدود ۶۶ میلیون پارامتر قابل آموزش (۱.۶۲٪) دارد و روی دیتاست tiny-persian-sft-15k با حدود ۱۵ هزار نمونه فارسی مکالمهای و عامل/ابزارمحور آموزش دیده است. در ارزیابی بدون نمونه (zero-shot)، PerCoR از ۱۵.۲٪ به ۳۰.۴٪ و PARSE از ۶۷.۵٪ به ۷۱.۷٪ رسیده است. کاساندان یک مدل استدلالی اختصاصی نیست و ممکن است خطا یا توهم داشته باشد."
-},
-{
-  "name": "ibnsina-1.5b",
-  "kind": "model",
-  "links": [
-    {
-      "type": "huggingface",
-      "url": "https://huggingface.co/ibnsina-llm/ibnsina-1.5b"
-    }
-  ],
-  "author": "سینا معراجی",
-  "date": "2026-10-10",
-  "downloads": 0,
-  "tags": [
-    "farsi",
-    "ibnsina",
-    "llama",
-    "chat",
-    "conversational"
-  ],
-  "desc": "اولین مدل زبانی فارسی متنباز در این مقیاس که از صفر با فارسی آموزش دیده است. بیشتر مدلهای فارسی روی یک پایهٔ انگلیسیزبان ساخته شدهاند؛ این مدل هرگز اول انگلیسی یاد نگرفت. ابنسینا ۱٫۵B با ۴۶ میلیارد توکن — عمدتاً فارسی — آموزش دیده و برای گفتوگو تنظیم شده است؛ با llama.cpp، ollama و LM Studio روی لپتاپ و گوشی اجرا میشود. وزنها، کد و دستور ساخت آزادند (Apache-2.0).\n\n"
-}  
+[
+  {
+    "name": "Persian-SFT-102K",
+    "kind": "dataset",
+    "links": [
+      {
+        "type": "huggingface",
+        "url": "https://huggingface.co/datasets/amiralifirouzi/Persian-SFT-102K"
+      }
+    ],
+    "author": "امیرعلی فیروزی",
+    "date": "2026-10-09",
+    "downloads": 153,
+    "tags": [
+      "sft",
+      "farsi",
+      "persian",
+      "data"
+    ],
+    "desc": "دیتاست **Persian SFT Master — 102K** یک مجموعه حدوداً ۱۰۲هزارنمونهای برای fine-tuning مدلهای زبانی با تمرکز بر فارسی است که در دو نسخه ارائه میشود: `fa` (۸۴٬۶۱۲ نمونه فارسی) و `fa_replay` (همان دادهها + ۱۷٬۳۰۲ نمونه انگلیسی برای حفظ قابلیتهای عمومی). دادهها حوزههایی مثل مکالمه، استدلال، ریاضی، برنامهنویسی و tool calling را پوشش میدهند و مجوز آن ترکیبی و وابسته به منبع اصلی هر نمونه است."
+  },
+  {
+    "name": "tiny-persian-sft-15k",
+    "kind": "dataset",
+    "links": [
+      {
+        "type": "huggingface",
+        "url": "https://huggingface.co/datasets/amiralifirouzi/tiny-persian-sft-15k"
+      }
+    ],
+    "author": "امیرعلی فیروزی",
+    "date": "2026-10-09",
+    "downloads": 62,
+    "tags": [
+      "persian",
+      "farsi",
+      "sft",
+      "instruction-tuning",
+      "chat",
+      "qwen3"
+    ],
+    "desc": "Tiny Persian SFT — 15K یک دیتاست فشرده و پالایششده برای Supervised Fine-Tuning مدلهای زبانی با تمرکز بر فارسی است — ساختهشده برای فاینتیون Qwen3-4B و مدلهای چت مشابه. این دیتاست نسخهی کوچکِ باکیفیتِ دیتاست Persian-SFT-102K، است: همان منابع، همان اسکیما، با یک پایپلاین نمونهگیری و ممیزی مستقل و عمیقتر."
+  },
+  {
+    "name": "Cassandane-qwen3-4b-persian-lora",
+    "kind": "model",
+    "links": [
+      {
+        "type": "huggingface",
+        "url": "https://huggingface.co/amiralifirouzi/Cassandane-qwen3-4b-persian-lora"
+      }
+    ],
+    "author": "امیرعلی فیروزی",
+    "date": "2026-10-10",
+    "downloads": 59,
+    "tags": [
+      "farsi",
+      "qwen3",
+      "lora",
+      "sft"
+    ],
+    "desc": "این مدل یک LoRA فارسی روی Qwen3-4B است که برای مکالمه، پیروی از دستور و تولید متن فارسی فاینتیون شده است. کاساندان حدود ۶۶ میلیون پارامتر قابل آموزش (۱.۶۲٪) دارد و روی دیتاست tiny-persian-sft-15k با حدود ۱۵ هزار نمونه فارسی مکالمهای و عامل/ابزارمحور آموزش دیده است. در ارزیابی بدون نمونه (zero-shot)، PerCoR از ۱۵.۲٪ به ۳۰.۴٪ و PARSE از ۶۷.۵٪ به ۷۱.۷٪ رسیده است. کاساندان یک مدل استدلالی اختصاصی نیست و ممکن است خطا یا توهم داشته باشد."
+  },
+  {
+    "name": "ibnsina-1.5b",
+    "kind": "model",
+    "links": [
+      {
+        "type": "huggingface",
+        "url": "https://huggingface.co/ibnsina-llm/ibnsina-1.5b"
+      }
+    ],
+    "author": "سینا معراجی",
+    "date": "2026-10-10",
+    "downloads": 687,
+    "tags": [
+      "farsi",
+      "ibnsina",
+      "llama",
+      "chat",
+      "conversational"
+    ],
+    "desc": "اولین مدل زبانی فارسی متنباز در این مقیاس که از صفر با فارسی آموزش دیده است. بیشتر مدلهای فارسی روی یک پایهٔ انگلیسیزبان ساخته شدهاند؛ این مدل هرگز اول انگلیسی یاد نگرفت. ابنسینا ۱٫۵B با ۴۶ میلیارد توکن — عمدتاً فارسی — آموزش دیده و برای گفتوگو تنظیم شده است؛ با llama.cpp، ollama و LM Studio روی لپتاپ و گوشی اجرا میشود. وزنها، کد و دستور ساخت آزادند (Apache-2.0).\n\n"
+  }
 ]
