@@ -15,6 +15,7 @@ import {
   IconClose,
   IconSort,
   IconSparkle,
+  IconArrowLeft,
 } from "@/components/zal/icons";
 import {
   type Item,
@@ -62,6 +63,7 @@ export default function Home() {
     id: number;
   } | null>(null);
   const [sortOpen, setSortOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   /* ستاره‌ها */
   useEffect(() => {
@@ -128,6 +130,21 @@ export default function Home() {
     }
     return list;
   }, [items, filter, search, sort, stars]);
+
+  // Reset page when filter/search/sort change by hooking directly into their state changes
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCurrentPage(1);
+  }, [filter, search, sort]);
+
+  const ITEMS_PER_PAGE = 8;
+  const totalPages = Math.ceil((filtered.length + 1) / ITEMS_PER_PAGE); // +1 for the Add Item card
+
+  const paginatedItems = useMemo(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+    return filtered.slice(start, end);
+  }, [filtered, currentPage]);
 
   const counts = useMemo(
     () => ({
@@ -511,49 +528,88 @@ export default function Home() {
               )}
             </div>
           ) : (
-            <div
-              key={`${filter}-${search}-${sort}`}
-              className="sim-swap grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-            >
-              {filtered.map((it, i) => (
-                <ItemCard
-                  key={itemKey(it)}
-                  item={it}
-                  index={i}
-                  starred={!!stars[itemKey(it)]}
-                  onOpen={setSelected}
-                  onToggleStar={(k) => {
-                    const wasOn = !!stars[k];
-                    toggleStar(k);
-                    showToast(
-                      wasOn
-                        ? "از علاقه‌مندی‌ها حذف شد"
-                        : "به علاقه‌مندی‌ها اضافه شد ★"
-                    );
-                  }}
-                />
-              ))}
-              {/* کارت دعوت — ثبت مدل/دیتاست جدید */}
-              <button
-                onClick={() => setSubmitOpen(true)}
-                className="sim-glass sim-feed-in group flex min-h-[200px] flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-[rgba(168,129,31,0.4)] p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[var(--sim-gold)] hover:shadow-[0_20px_50px_-15px_rgba(168,129,31,0.35)]"
-                style={{
-                  animationDelay: `${Math.min(filtered.length * 0.04, 0.5)}s`,
-                }}
+            <div className="flex flex-col gap-6">
+              <div
+                key={`${filter}-${search}-${sort}-${currentPage}`}
+                className="sim-swap grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
               >
-                <div className="grid h-14 w-14 place-items-center rounded-2xl border border-[rgba(168,129,31,0.3)] bg-[linear-gradient(135deg,rgba(168,129,31,0.2),rgba(227,200,118,0.25))] text-[var(--sim-gold-deep)] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                  <IconPlus className="h-7 w-7" />
+                {paginatedItems.map((it, i) => (
+                  <ItemCard
+                    key={itemKey(it)}
+                    item={it}
+                    index={i}
+                    starred={!!stars[itemKey(it)]}
+                    onOpen={setSelected}
+                    onToggleStar={(k) => {
+                      const wasOn = !!stars[k];
+                      toggleStar(k);
+                      showToast(
+                        wasOn
+                          ? "از علاقه‌مندی‌ها حذف شد"
+                          : "به علاقه‌مندی‌ها اضافه شد ★"
+                      );
+                    }}
+                  />
+                ))}
+                {/* کارت دعوت — ثبت مدل/دیتاست جدید (فقط در صفحه آخر) */}
+                {currentPage === totalPages && (
+                  <button
+                    onClick={() => setSubmitOpen(true)}
+                    className="sim-glass sim-feed-in group flex min-h-[200px] flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-[rgba(168,129,31,0.4)] p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[var(--sim-gold)] hover:shadow-[0_20px_50px_-15px_rgba(168,129,31,0.35)]"
+                    style={{
+                      animationDelay: `${Math.min(paginatedItems.length * 0.04, 0.5)}s`,
+                    }}
+                  >
+                    <div className="grid h-14 w-14 place-items-center rounded-2xl border border-[rgba(168,129,31,0.3)] bg-[linear-gradient(135deg,rgba(168,129,31,0.2),rgba(227,200,118,0.25))] text-[var(--sim-gold-deep)] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                      <IconPlus className="h-7 w-7" />
+                    </div>
+                    <h3 className="sim-nasta text-[1.1rem] font-bold text-[var(--sim-lapis)]">
+                      مدل یا دیتاست خود را اضافه کنید
+                    </h3>
+                    <p className="text-[0.78rem] leading-relaxed text-[#54452b]">
+                      درخواست شما بررسی و به فید عمومی زال افزوده می‌شود
+                    </p>
+                    <span className="mt-1 inline-flex items-center gap-1 text-[0.76rem] font-semibold text-[var(--sim-gold-deep)] transition-colors group-hover:text-[var(--sim-lapis)]">
+                      شروع ثبت درخواست ←
+                    </span>
+                  </button>
+                )}
+              </div>
+
+              {/* Pagination Controls */}
+              {totalPages > 1 && (
+                <div className="flex items-center justify-center gap-2 pt-4">
+                  <button
+                    onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                    disabled={currentPage === 1}
+                    className="sim-glass flex h-10 w-10 items-center justify-center rounded-xl text-[var(--sim-lapis)] transition-all hover:bg-[rgba(168,129,31,0.1)] hover:text-[var(--sim-gold-deep)] disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-[var(--sim-lapis)]"
+                  >
+                    <IconArrowLeft className="h-5 w-5 rotate-180" />
+                  </button>
+                  <div className="flex items-center gap-1.5">
+                    {Array.from({ length: totalPages }).map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrentPage(i + 1)}
+                        className={`flex h-10 min-w-[2.5rem] items-center justify-center rounded-xl px-3 text-[0.9rem] font-bold transition-all ${
+                          currentPage === i + 1
+                            ? "bg-[linear-gradient(135deg,var(--sim-gold),var(--sim-gold-2))] text-white shadow-[0_4px_12px_-4px_rgba(168,129,31,0.5)]"
+                            : "sim-glass text-[#54452b] hover:bg-[rgba(168,129,31,0.1)] hover:text-[var(--sim-gold-deep)]"
+                        }`}
+                      >
+                        {fa(i + 1)}
+                      </button>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                    disabled={currentPage === totalPages}
+                    className="sim-glass flex h-10 w-10 items-center justify-center rounded-xl text-[var(--sim-lapis)] transition-all hover:bg-[rgba(168,129,31,0.1)] hover:text-[var(--sim-gold-deep)] disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-[var(--sim-lapis)]"
+                  >
+                    <IconArrowLeft className="h-5 w-5" />
+                  </button>
                 </div>
-                <h3 className="sim-nasta text-[1.1rem] font-bold text-[var(--sim-lapis)]">
-                  مدل یا دیتاست خود را اضافه کنید
-                </h3>
-                <p className="text-[0.78rem] leading-relaxed text-[#54452b]">
-                  درخواست شما بررسی و به فید عمومی زال افزوده می‌شود
-                </p>
-                <span className="mt-1 inline-flex items-center gap-1 text-[0.76rem] font-semibold text-[var(--sim-gold-deep)] transition-colors group-hover:text-[var(--sim-lapis)]">
-                  شروع ثبت درخواست ←
-                </span>
-              </button>
+              )}
             </div>
           )}
         </section>

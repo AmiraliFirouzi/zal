@@ -95,11 +95,13 @@ function ItemCardBase({ item, index, starred, onOpen, onToggleStar }: Props) {
       {/* توضیح کوتاه */}
       {item.desc && (
         <p className="mb-3 line-clamp-2 text-[0.82rem] leading-relaxed text-[#5a4d33]">
-          {item.desc
-            .replace(/[#*`>\-]/g, "")
-            .replace(/\n+/g, " ")
-            .trim()
-            .slice(0, 120)}
+          {(() => {
+            const cleanDesc = item.desc
+              .replace(/[#*`>\-]/g, "")
+              .replace(/\n+/g, " ")
+              .trim();
+            return cleanDesc.length > 120 ? cleanDesc.slice(0, 120) + "..." : cleanDesc;
+          })()}
         </p>
       )}
 
