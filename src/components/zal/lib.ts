@@ -168,6 +168,7 @@ export interface TeamMember {
   role: string;
   bio: string;
   initials: string;
+  avatar?: string;
   github?: string;
   email?: string;
   linkedin?: string;
@@ -179,6 +180,7 @@ export const TEAM: TeamMember[] = [
     role: "بنیان‌گذار · دیتاساینتیست",
     bio: "پژوهشگر در حوزه‌ی دیتاساینس و مدل‌های زبانی. تمرکز بر توسعه‌ی هوش مصنوعی برای زبان فارسی و ساخت کامیونیتی متن‌باز زال.",
     initials: "ا.ف",
+    avatar: "https://media.licdn.com/dms/image/v2/D4E03AQEGFznTbHli1g/profile-displayphoto-crop_800_800/B4EaDYVf6BJcAM-/0/1790335910828?e=1793232000&v=beta&t=z-JA5IBZtGz7GN9gRcu5k2lumaxDGaIJJgmNnPUGnqE",
     github: "https://github.com/AmiraliFirouzi",
     email: "mailto:heroesmihan@gmail.com",
     linkedin: "https://www.linkedin.com/in/amirali-firouzi-2b714335a",
@@ -188,6 +190,7 @@ export const TEAM: TeamMember[] = [
     role: "هم‌بنیان‌گذار · دیتاساینتیست",
     bio: "پژوهشگر در حوزه‌ی دیتاساینس و مدل‌های زبانی.",
     initials: "س.د",
+    avatar: "/team/amirali.jpg",
     github: "https://github.com/sobhandehghan",
     email: "mailto:sobhandehghan1378@hotmail.com",
     linkedin: "https://www.linkedin.com/in/sobhan-dehghani/",
