@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ItemCard } from "@/components/zal/ItemCard";
 import { DetailModal } from "@/components/zal/DetailModal";
 import { SubmitModal } from "@/components/zal/SubmitModal";
+import { SponsorModal } from "@/components/zal/SponsorModal";
 import { AboutSection } from "@/components/zal/AboutSection";
 import { Reveal } from "@/components/zal/Reveal";
 import {
@@ -57,6 +58,7 @@ export default function Home() {
   const [stars, setStars] = useState<Record<string, boolean>>({});
   const [selected, setSelected] = useState<Item | null>(null);
   const [submitOpen, setSubmitOpen] = useState(false);
+  const [sponsorOpen, setSponsorOpen] = useState(false);
   const [toast, setToast] = useState<{
     msg: string;
     type: "success" | "error";
@@ -314,6 +316,12 @@ export default function Home() {
             >
               تیم
             </a>
+            <button
+              onClick={() => setSponsorOpen(true)}
+              className="rounded-full px-3 py-2 text-[0.84rem] font-semibold text-[var(--sim-gold-deep)] transition-colors hover:bg-[rgba(168,129,31,0.1)] hover:text-[var(--sim-lapis)]"
+            >
+              حمایت مالی
+            </button>
           </div>
         </nav>
       </header>
@@ -671,6 +679,11 @@ export default function Home() {
       <SubmitModal
         open={submitOpen}
         onClose={() => setSubmitOpen(false)}
+        onToast={showToast}
+      />
+      <SponsorModal
+        open={sponsorOpen}
+        onClose={() => setSponsorOpen(false)}
         onToast={showToast}
       />
 
