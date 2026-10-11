@@ -160,3 +160,10 @@ export const IconSort = (p: IconProps) => (
     <path d="M3 6h13M3 12h9M3 18h5M17 9l3-3 3 3M20 6v12" />
   </svg>
 );
+
+export const IconCopy = (p: IconProps) => (
+  <svg {...base} {...p} strokeWidth={1.7}>
+    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+  </svg>
+);
