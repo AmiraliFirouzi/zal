@@ -28,7 +28,7 @@ assignees: amiralifirouzi
 [توضیحاتی در مورد مدل خود بنویسید...]
 
 ---
-
+<details>
 ### 📋 برای ادمین — این بلاک را به `data.json` اضافه کنید
 
 ```json
@@ -43,3 +43,4 @@ assignees: amiralifirouzi
   "desc": ""
 }
 ```
+<details>
