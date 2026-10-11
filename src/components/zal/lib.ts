@@ -178,10 +178,19 @@ export const TEAM: TeamMember[] = [
     name: "امیرعلی فیروزی",
     role: "بنیان‌گذار · دیتاساینتیست",
     bio: "پژوهشگر در حوزه‌ی دیتاساینس و مدل‌های زبانی. تمرکز بر توسعه‌ی هوش مصنوعی برای زبان فارسی و ساخت کامیونیتی متن‌باز زال.",
-    initials: "ع.ف",
+    initials: "ا.ف",
     github: "https://github.com/AmiraliFirouzi",
     email: "mailto:heroesmihan@gmail.com",
     linkedin: "https://www.linkedin.com/in/amirali-firouzi-2b714335a",
+  },
+    {
+    name: "سبحان دهقانی",
+    role: "هم‌بنیان‌گذار · دیتاساینتیست",
+    bio: "پژوهشگر در حوزه‌ی دیتاساینس و مدل‌های زبانی.",
+    initials: "س.د",
+    github: "https://github.com/sobhandehghan",
+    email: "mailto:sobhandehghan1378@hotmail.com",
+    linkedin: "https://www.linkedin.com/in/sobhan-dehghani/",
   },
 ];
 
