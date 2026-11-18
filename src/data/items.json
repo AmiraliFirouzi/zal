@@ -10,7 +10,7 @@
     ],
     "author": "امیرعلی فیروزی",
     "date": "2026-10-09",
-    "downloads": 293,
+    "downloads": 280,
     "tags": [
       "sft",
       "farsi",
@@ -30,7 +30,7 @@
     ],
     "author": "امیرعلی فیروزی",
     "date": "2026-10-09",
-    "downloads": 83,
+    "downloads": 79,
     "tags": [
       "persian",
       "farsi",
@@ -52,7 +52,7 @@
     ],
     "author": "امیرعلی فیروزی",
     "date": "2026-10-10",
-    "downloads": 31,
+    "downloads": 28,
     "tags": [
       "farsi",
       "qwen3",
@@ -72,7 +72,7 @@
     ],
     "author": "سینا معراجی",
     "date": "2026-10-10",
-    "downloads": 1157,
+    "downloads": 1117,
     "tags": [
       "farsi",
       "ibnsina",
@@ -93,7 +93,7 @@
     ],
     "author": "سینا معراجی",
     "date": "2026-10-10",
-    "downloads": 225,
+    "downloads": 224,
     "tags": [
       "ibnsina",
       "qwen3",
@@ -113,7 +113,7 @@
     ],
     "author": "سینا معراجی",
     "date": "2026-10-10",
-    "downloads": 173,
+    "downloads": 163,
     "tags": [
       "farsi",
       "Synthetic"
@@ -131,7 +131,7 @@
     ],
     "author": "سینا معراجی",
     "date": "2026-10-10",
-    "downloads": 196,
+    "downloads": 193,
     "tags": [
       "ibnsina",
       "conversational",
@@ -170,7 +170,7 @@
     ],
     "author": "امیرعلی فیروزی",
     "date": "2026-10-12",
-    "downloads": 13,
+    "downloads": 11,
     "tags": [
       "multilingual",
       "decision-model",
