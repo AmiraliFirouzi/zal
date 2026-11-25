@@ -10,7 +10,7 @@
     ],
     "author": "امیرعلی فیروزی",
     "date": "2026-10-09",
-    "downloads": 338,
+    "downloads": 341,
     "tags": [
       "sft",
       "farsi",
@@ -30,7 +30,7 @@
     ],
     "author": "امیرعلی فیروزی",
     "date": "2026-10-09",
-    "downloads": 70,
+    "downloads": 72,
     "tags": [
       "persian",
       "farsi",
@@ -52,7 +52,7 @@
     ],
     "author": "امیرعلی فیروزی",
     "date": "2026-10-10",
-    "downloads": 26,
+    "downloads": 32,
     "tags": [
       "farsi",
       "qwen3",
@@ -72,7 +72,7 @@
     ],
     "author": "سینا معراجی",
     "date": "2026-10-10",
-    "downloads": 1058,
+    "downloads": 991,
     "tags": [
       "farsi",
       "ibnsina",
@@ -93,7 +93,7 @@
     ],
     "author": "سینا معراجی",
     "date": "2026-10-10",
-    "downloads": 2481,
+    "downloads": 2490,
     "tags": [
       "ibnsina",
       "qwen3",
@@ -113,7 +113,7 @@
     ],
     "author": "سینا معراجی",
     "date": "2026-10-10",
-    "downloads": 179,
+    "downloads": 180,
     "tags": [
       "farsi",
       "Synthetic"
@@ -131,7 +131,7 @@
     ],
     "author": "سینا معراجی",
     "date": "2026-10-10",
-    "downloads": 145,
+    "downloads": 142,
     "tags": [
       "ibnsina",
       "conversational",
@@ -150,7 +150,7 @@
     ],
     "author": "سبحان دهقانی",
     "date": "2026-10-12",
-    "downloads": 24,
+    "downloads": 27,
     "tags": [
       "orchestration",
       "multi-core",
